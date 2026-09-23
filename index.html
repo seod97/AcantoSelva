@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="ACANTO SELVA — Rooted in resilience, shaped by movement."
+    />
+    <title>ACANTO SELVA — B-2</title>
+    <link rel="stylesheet" href="./src/hero-b2.css" />
+    <script type="module" src="./src/hero-b2.js"></script>
+    <link rel="stylesheet" href="./design-system/tokens.css?v=20260922q" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260923a" />
+    <script type="importmap">
+      { "imports": { "three": "./public/vendor/three/three.module.js" } }
+    </script>
+    <script type="module" src="./src/knot-viewer.js?v=20260922u2"></script>
+  </head>
+  <body>
+    <nav class="section-nav" aria-label="섹션 이동" hidden>
+      <a href="#index" aria-label="Index"><span>Index</span></a>
+      <a href="#objects" aria-label="Objects"><span>Objects</span></a>
+      <a class="section-nav__sub" href="#object-knot" aria-label="Guardian Knot"><span>Guardian Knot</span></a>
+      <a class="section-nav__sub" href="#object-labyrinth" aria-label="Guardian Labyrinth"><span>Guardian Labyrinth</span></a>
+      <a class="section-nav__sub" href="#object-eye" aria-label="Guardian Eye"><span>Guardian Eye</span></a>
+      <a href="#origin" aria-label="Origin"><span>Origin</span></a>
+      <a class="section-nav__sub" href="#origin-01" aria-label="Acanthus · Nomad"><span>Acanthus · Nomad</span></a>
+      <a class="section-nav__sub" href="#origin-02" aria-label="Synthesis"><span>Synthesis</span></a>
+      <a href="#symbols" aria-label="Symbols"><span>Symbols</span></a>
+      <a class="section-nav__sub" href="#symbol-eye" aria-label="Eye"><span>Eye</span></a>
+      <a class="section-nav__sub" href="#symbol-labyrinth" aria-label="Labyrinth"><span>Labyrinth</span></a>
+      <a class="section-nav__sub" href="#symbol-knot" aria-label="Knot"><span>Knot</span></a>
+      <a href="#standard" aria-label="Standard"><span>Standard</span></a>
+      <a class="section-nav__sub" href="#standard" data-frame-index="0" aria-label="Research"><span>Research</span></a>
+      <a class="section-nav__sub" href="#standard" data-frame-index="1" aria-label="The Trained Eye"><span>The Trained Eye</span></a>
+      <a class="section-nav__sub" href="#standard" data-frame-index="2" aria-label="Final Inspection"><span>Final Inspection</span></a>
+    </nav>
+    <main>
+      <section class="index" id="index" aria-labelledby="index-title">
+        <div class="index__stage">
+          <h1 id="index-title" class="sr-only">ACANTO SELVA</h1>
+          <div class="brand-lockup" aria-hidden="true">
+            <img
+              class="brand-lockup__mark"
+              src="./public/assets/figma/brand-mark.png"
+              alt=""
+              width="1372"
+              height="1134"
+            />
+            <p class="brand-lockup__name">Acanto Selva</p>
+            <p class="brand-lockup__tagline">Life endures.</p>
+          </div>
+          <p class="index__scroll">Scroll Down</p>
+          <div class="index__direction" aria-hidden="true">
+            <img src="./public/assets/figma/scroll-line.svg" alt="" width="56" height="12" />
+          </div>
+        </div>
+      </section>
+
+      <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__media">
+              <img
+                src="./public/assets/figma/hero-object.webp"
+                alt="곡선과 세공 디테일이 강조된 ACANTO SELVA 오브젝트"
+                width="1672"
+                height="941"
+              />
+              <h2 id="hero-title" class="hero__title display">
+                <span>Rooted in resilience</span>
+                <span>shaped by movement</span>
+              </h2>
+            </div>
+      </section>
+
+      <section class="manifesto" id="manifesto" aria-label="Brand statement">
+            <p>정적인 장식이 아니다</p>
+            <p>움직이는 구조, 착용되며 완성된다</p>
+      </section>
+
+      <div class="objects-pin" id="objects">
+        <section class="objects page-grid" aria-labelledby="objects-title">
+          <header class="section-heading objects__heading">
+            <h2 id="objects-title" class="section-heading__title display">First Impression</h2>
+            <p class="section-heading__subtitle">Guardian Ring</p>
+          </header>
+
+          <article class="object-card object-card--lead" id="object-knot">
+            <div class="object-card__media media-placeholder--lead">
+              <img src="./public/assets/object_01.png?v=20260923" alt="Guardian Knot 반지를 착용한 인물의 흑백 클로즈업" width="1362" height="600" loading="lazy" decoding="async" />
+            </div>
+            <p class="object-card__caption">Guardian — Knot</p>
+          </article>
+
+          <article class="object-card object-card--labyrinth-one" id="object-labyrinth">
+            <div class="object-card__media media-placeholder--square">
+              <img src="./public/assets/object_GuardianLabyrinth_01.png?v=20260923" alt="젖은 아칸서스 잎에 놓인 Guardian Labyrinth 반지" width="1254" height="1254" loading="lazy" decoding="async" />
+            </div>
+            <p class="object-card__caption">Guardian — Labyrinth</p>
+          </article>
+
+          <article class="object-card object-card--labyrinth-two">
+            <div class="object-card__media media-placeholder--square">
+              <img src="./public/assets/object_GuardianLabyrinth_02.png?v=20260923c" alt="Guardian Labyrinth 반지의 정면 디테일" width="1254" height="1254" loading="lazy" decoding="async" />
+            </div>
+            <p class="object-card__caption">Guardian — Labyrinth</p>
+          </article>
+
+          <article class="object-card object-card--knot-two">
+            <div class="media-placeholder media-placeholder--short knot-viewer" data-knot-viewer aria-label="Guardian Knot 3D 모델. 드래그하여 회전">
+              <canvas class="knot-viewer__canvas"></canvas>
+              <span class="knot-viewer__fallback" hidden>디테일</span>
+            </div>
+            <p class="object-card__caption">Guardian — Knot</p>
+          </article>
+
+          <article class="object-card object-card--eye" id="object-eye">
+            <div class="object-card__media media-placeholder--portrait">
+              <img src="./public/assets/object_GuardianEye_02.png?v=20260923" alt="유기적인 아칸서스 잎의 세공 디테일" width="866" height="1817" loading="lazy" decoding="async" />
+            </div>
+            <p class="object-card__caption">Guardian — Eye</p>
+          </article>
+        </section>
+      </div>
+
+      <section class="origin" id="origin" aria-labelledby="origin-title">
+        <div class="origin-scene origin__opening" id="origin-01">
+        <header class="origin__heading page-grid">
+          <h2 id="origin-title" class="display">Acanto Selva</h2>
+          <p>Acanthus takes root, Nomad moves</p>
+        </header>
+
+            <div class="origin__pair page-grid">
+              <article class="origin-card">
+                <div class="origin-card__media">
+                  <img src="./public/assets/origin_Acanthus_02.png" alt="황야에 서 있는 아칸서스 장식 기둥" width="1254" height="1254" loading="lazy" decoding="async" />
+                </div>
+                <div class="origin-card__copy">
+                  <h3 class="display">Acanthus</h3>
+                  <p class="origin-card__english">Rooted in resilience</p>
+                  <p>살아남기 위해 뿌리를 내리고</p>
+                </div>
+              </article>
+
+              <article class="origin-card">
+                <div class="origin-card__media">
+                  <img src="./public/assets/origin_Nomad.png" alt="Nomad 이미지" width="1254" height="1254" />
+                </div>
+                <div class="origin-card__copy">
+                  <h3 class="display">Nomad</h3>
+                  <p class="origin-card__english">Shaped by movement</p>
+                  <p>살아남기 위해 움직였다</p>
+                </div>
+              </article>
+            </div>
+
+        </div>
+        <div class="origin-scene origin-scene--synthesis" id="origin-02">
+            <article class="synthesis page-grid">
+              <div class="synthesis__media">
+                <img src="./public/assets/origin_03.png" alt="광활한 초원을 이동하는 기마 인물" width="2117" height="743" loading="lazy" decoding="async" />
+              </div>
+              <div class="synthesis__index">
+                <p>생명 <span>성장</span> <span>유기적 긴장감</span></p>
+                <strong>ACANTO SELVA</strong>
+                <p>이동 <span>기억</span> <span>보호</span> <span>여정</span></p>
+              </div>
+            </article>
+        </div>
+      </section>
+
+      <div class="symbols-scene" id="symbols">
+      <section class="symbols page-grid" aria-labelledby="symbols-title">
+        <header class="wide-heading">
+          <h2 id="symbols-title" class="display">Cultural Symbol</h2>
+          <p>문화마다 다른 형태 속에서 반복되는 인간의 상징을 연구한다</p>
+        </header>
+
+        <div class="symbols__grid">
+          <article class="symbol-card" id="symbol-eye">
+            <div class="media-placeholder symbol-card__media knot-viewer knot-viewer--reveal" data-knot-viewer data-stl-src="./public/assets/models/Eye.stl" data-pose-x="-55" data-pose-y="24" tabindex="0" aria-label="EYE 심볼. 호버하거나 키보드로 초점을 맞추면 반지 측면 디테일이 나타납니다">
+              <img class="symbol-card__image" src="./public/assets/Symbol_eye.png" alt="EYE 문화적 모티프와 심볼" width="592" height="640" loading="lazy" decoding="async" />
+              <canvas class="knot-viewer__canvas"></canvas>
+              <span class="knot-viewer__fallback" hidden>심볼 이미지<br />호버 전환</span>
+            </div>
+            <h3>EYE</h3>
+            <p><strong>EYE</strong> 심볼에 대한 자세한 디스크립션</p>
+          </article>
+          <article class="symbol-card" id="symbol-labyrinth">
+            <div class="media-placeholder symbol-card__media knot-viewer knot-viewer--reveal" data-knot-viewer data-stl-src="./public/assets/models/Labyrinth.stl" data-pose-x="-100" data-pose-y="-30" tabindex="0" aria-label="LABYRINTH 심볼. 호버하거나 키보드로 초점을 맞추면 반지 측면 디테일이 나타납니다">
+              <img class="symbol-card__image" src="./public/assets/Symbol_labyrinth.png" alt="LABYRINTH 문화적 모티프와 심볼" width="592" height="640" loading="lazy" decoding="async" />
+              <canvas class="knot-viewer__canvas"></canvas>
+              <span class="knot-viewer__fallback" hidden>심볼 이미지<br />호버 전환</span>
+            </div>
+            <h3>LABYRINTH</h3>
+            <p><strong>LABYRINTH</strong> 심볼에 대한 자세한 디스크립션</p>
+          </article>
+          <article class="symbol-card" id="symbol-knot">
+            <div class="media-placeholder symbol-card__media knot-viewer knot-viewer--reveal" data-knot-viewer data-stl-src="./public/assets/models/knot.stl" data-pose-x="-65" data-pose-y="38" tabindex="0" aria-label="KNOT 심볼. 호버하거나 키보드로 초점을 맞추면 반지 측면 디테일이 나타납니다">
+              <img class="symbol-card__image" src="./public/assets/Symbol_knot.png" alt="KNOT 문화적 모티프와 심볼" width="592" height="640" loading="lazy" decoding="async" />
+              <canvas class="knot-viewer__canvas"></canvas>
+              <span class="knot-viewer__fallback" hidden>심볼 이미지<br />호버 전환</span>
+            </div>
+            <h3>KNOT</h3>
+            <p><strong>KNOT</strong> 심볼에 대한 자세한 디스크립션</p>
+          </article>
+        </div>
+      </section>
+
+      </div>
+
+      <section class="standard-intro" aria-label="Craft philosophy">
+        <img class="standard-intro__mark" src="./public/assets/figma/brand-mark.png" alt="" width="113" height="93" />
+        <div class="standard-intro__copy">
+          <p>좋은 형태는 발명되지 않는다</p>
+          <p>발견되고, 선택되고, 정제된다</p>
+        </div>
+      </section>
+
+      <div class="scroll-fade scroll-fade--titled" id="standard" data-scroll-fade data-exit-last style="height: 400vh">
+        <div class="scroll-fade__stage">
+          <header class="wide-heading page-grid scroll-fade__title">
+            <h2 id="standards-title" class="display">Our Standard</h2>
+            <p>기술은 공유된다. 판단은 축적된다</p>
+          </header>
+
+          <article class="standard standard--research scroll-fade__frame" data-fade-frame>
+            <div class="media-placeholder standard__media" role="img" aria-label="리서치 이미지 준비 중">
+              <span>리서치 중인 이미지</span>
+            </div>
+            <div class="standard__copy">
+              <h3>Research</h3>
+              <p>감으로 작업하지 않는다</p>
+              <p>기록하고, 비교하고, 반복하며 기준을 만든다</p>
+            </div>
+          </article>
+
+          <article class="standard standard--eye scroll-fade__frame" data-fade-frame>
+            <div class="standard__copy">
+              <h3>The Trained EYE</h3>
+              <p>우리는 새로운 형태를 창작한다고 생각하지 않는다</p>
+              <p>우리는 판단의 기준을 만든다</p>
+            </div>
+            <div class="media-placeholder standard__media" role="img" aria-label="메인 비주얼 이미지 준비 중">
+              <span>메인 비주얼<br />셀렉하는 이미지</span>
+            </div>
+            <p class="standard__aside">수많은 좋은 형태를 발견하고, 선택하고, 더 정제한다</p>
+          </article>
+
+          <article class="inspection content-focused scroll-fade__frame" data-fade-frame>
+            <div class="media-placeholder inspection__media" role="img" aria-label="제품 최종 검수 이미지 준비 중">
+              <span>제품 최종<br />검수중인 이미지</span>
+            </div>
+            <dl class="inspection__principles">
+              <div><dt>DENSITY</dt><dd>구조 위에 질서 있게 배치된 디테일</dd></div>
+              <div><dt>ORGANIC FRAME</dt><dd>생명이 가진 유기적인 긴장감</dd></div>
+              <div><dt>METALWORK</dt><dd>금속 장식이 아닌 구조</dd></div>
+              <div><dt>DETAIL</dt><dd>가까이 갈수록 더 좋아지는 완성도</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+
+      <div class="scroll-fade" data-scroll-fade data-exit-last style="height: 240vh">
+        <div class="scroll-fade__stage">
+          <div class="closing-phrase scroll-fade__frame" data-fade-frame aria-hidden="true"></div>
+
+          <section class="closing-phrase scroll-fade__frame" data-fade-frame data-fade-hold-duration="0.3" data-fade-exit-duration="0.5" aria-label="Closing statement">
+            <p>기술은 공유된다. 판단은 축적된다</p>
+          </section>
+        </div>
+      </div>
+
+      <section class="arrival page-grid" aria-labelledby="arrival-title">
+        <div class="arrival__lockup" aria-hidden="true">
+          <img src="./public/assets/figma/brand-mark.png" alt="" width="1372" height="1134" />
+          <p class="display">Acanto Selva</p>
+          <span class="display">Life endures.</span>
+        </div>
+        <div class="arrival__copy">
+          <h2 id="arrival-title">Coming Soon</h2>
+          <p>첫 번째 컬렉션이 곧 공개됩니다</p>
+          <time>26.12.34</time>
+        </div>
+        <div class="arrival__social" aria-label="ACANTO SELVA social handle">
+          <img src="./public/assets/figma/kakao.svg" alt="" width="44" height="44" />
+          <span>@acantoselva</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>푸터</p>
+      <p class="footer__wordmark">ACANTO SELVA</p>
+    </footer>
+  </body>
+</html>

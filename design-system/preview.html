@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ACANTO SELVA — Web Design System v0.1.1</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--as-bg-canvas);
+      color: var(--as-text-primary);
+      font-family: var(--as-font-body);
+      line-height: var(--as-line-body);
+    }
+    a { color: inherit; }
+    .page { max-width: var(--as-content-canvas); margin: 0 auto; padding: var(--as-space-7) var(--as-page-gutter) var(--as-space-14); }
+    header { display: flex; justify-content: space-between; align-items: baseline; gap: var(--as-space-6); border-bottom: 1px solid var(--as-border-subtle); padding-bottom: var(--as-space-6); }
+    .eyebrow { font-size: var(--as-font-1); letter-spacing: var(--as-track-meta); text-transform: uppercase; color: var(--as-text-muted); }
+    h1 { font-family: var(--as-font-display); margin: var(--as-space-10) 0 var(--as-space-13); max-width: 12ch; font-size: var(--as-display-l); line-height: var(--as-line-tight); letter-spacing: var(--as-track-tight); font-weight: var(--as-weight-regular); }
+    h2 { font-family: var(--as-font-display); margin: 0 0 var(--as-space-8); font-size: var(--as-heading-l); line-height: var(--as-line-heading); font-weight: var(--as-weight-medium); }
+    section { margin-top: var(--as-space-13); }
+    .grid { display: grid; grid-template-columns: repeat(var(--as-grid-columns), minmax(0, 1fr)); gap: var(--as-grid-gutter); }
+    .swatch { grid-column: span 2; min-height: 180px; padding: var(--as-space-5); display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--as-border-subtle); }
+    .swatch code, code { font-family: var(--as-font-mono); font-size: var(--as-font-1); }
+    .type-sample { border-top: 1px solid var(--as-border-subtle); padding: var(--as-space-6) 0; display: grid; grid-template-columns: minmax(120px, 2fr) 8fr; gap: var(--as-space-6); }
+    .display-l { font-family: var(--as-font-display); font-size: var(--as-display-l); line-height: var(--as-line-tight); letter-spacing: var(--as-track-tight); }
+    .display-m { font-family: var(--as-font-display); font-size: var(--as-display-m); line-height: var(--as-line-tight); letter-spacing: var(--as-track-tight); }
+    .title-l { font-family: var(--as-font-display); font-size: var(--as-title-l); line-height: var(--as-line-heading); }
+    .body-l { max-width: var(--as-content-text); font-size: var(--as-font-5); line-height: var(--as-line-longform); }
+    .spacing { display: flex; align-items: flex-end; gap: var(--as-space-5); overflow-x: auto; padding-bottom: var(--as-space-5); }
+    .spacing-item { min-width: 72px; }
+    .spacing-bar { background: var(--as-action-primary); width: 24px; max-height: 200px; }
+    .object-field { min-height: 70vh; display: grid; place-items: center; background: var(--as-bg-surface); border: 1px solid var(--as-border-subtle); position: relative; }
+    .object { width: min(32vw, 420px); aspect-ratio: 1; border: 1px solid var(--as-border-strong); border-radius: 50%; display: grid; place-items: center; font-size: var(--as-font-2); letter-spacing: var(--as-track-meta); text-transform: uppercase; }
+    .object-meta { position: absolute; left: var(--as-space-6); bottom: var(--as-space-6); max-width: 24ch; color: var(--as-text-secondary); }
+    .button { min-height: var(--as-hit-target); border: 1px solid var(--as-action-primary); background: var(--as-action-primary); color: var(--as-action-primary-text); padding: 0 var(--as-space-6); font: inherit; }
+    .button.secondary { background: transparent; color: var(--as-text-primary); }
+    .actions { display: flex; flex-wrap: wrap; gap: var(--as-space-4); }
+    @media (max-width: 767px) {
+      header { align-items: flex-start; flex-direction: column; }
+      h1 { margin-bottom: var(--as-space-11); }
+      .swatch { grid-column: span 2; min-height: 140px; }
+      .type-sample { grid-template-columns: 1fr; }
+      .object { width: 58vw; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <div class="eyebrow">ACANTO SELVA</div>
+        <div>Web Design System v0.1.1</div>
+      </div>
+      <div class="eyebrow">Working baseline · 2026-09-18</div>
+    </header>
+
+    <h1>Natural things don't announce themselves.</h1>
+
+    <section>
+      <h2>Semantic Color</h2>
+      <div class="grid">
+        <div class="swatch" style="background:var(--as-brand-primary);color:white"><code>brand.primary</code><span>#154734 · PANTONE 3435 C</span></div>
+        <div class="swatch" style="background:var(--as-bg-canvas)"><code>background.canvas</code><span>#F5F4EF</span></div>
+        <div class="swatch" style="background:var(--as-bg-surface)"><code>background.surface</code><span>#FFFFFF</span></div>
+        <div class="swatch" style="background:var(--as-bg-subtle)"><code>background.subtle</code><span>#ECE9E1</span></div>
+        <div class="swatch" style="background:var(--as-bg-inverse);color:var(--as-text-inverse)"><code>background.inverse</code><span>#121212</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Typography</h2>
+      <p><strong>Display:</strong> DTL Unico T · <strong>General / Korean / UI:</strong> Pretendard</p>
+      <div class="type-sample"><code>Display / L</code><div class="display-l">The Trained Eye</div></div>
+      <div class="type-sample"><code>Display / M</code><div class="display-m">Rooted in Resilience.</div></div>
+      <div class="type-sample"><code>Title / L</code><div class="title-l">Shaped by Movement.</div></div>
+      <div class="type-sample"><code>Body / L</code><div class="body-l">좋은 것은 설명보다 먼저 느껴진다. 우리는 새로운 형태를 억지로 발명하기보다 수많은 좋은 형태를 발견하고 선택하고 더 정제한다.</div></div>
+    </section>
+
+    <section>
+      <h2>Spacing Rhythm</h2>
+      <div class="spacing" id="spacing"></div>
+    </section>
+
+    <section>
+      <h2>Object Isolation</h2>
+      <div class="object-field">
+        <div class="object">Guardian Object</div>
+        <div class="object-meta">Wide field, quiet metadata, no unnecessary decoration.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Transactional Actions</h2>
+      <div class="actions">
+        <button class="button">Add to cart</button>
+        <button class="button secondary">View details</button>
+      </div>
+    </section>
+  </main>
+  <script>
+    const values = [2,4,8,12,16,24,32,48,64,80,96,128,160,240,320];
+    document.querySelector('#spacing').innerHTML = values.map((value, index) => `
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:${Math.min(value, 200)}px"></div>
+        <code>space.${index + 1}<br>${value}px</code>
+      </div>`).join('');
+  </script>
+</body>
+</html>

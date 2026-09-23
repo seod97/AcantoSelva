@@ -1,0 +1,248 @@
+/* ACANTO SELVA Web Design Tokens v0.1.2 — grid update */
+:root {
+  color-scheme: light;
+
+  --as-color-white: #ffffff;
+  --as-color-brand-primary: #154734; /* PANTONE 3435 C */
+  --as-color-paper: #f5f4ef;
+  --as-color-sand: #ece9e1;
+  --as-color-ink: #121212;
+  --as-color-graphite: #45443f;
+  --as-color-ash: #73716b;
+  --as-color-fog: #a6a39b;
+  --as-color-line: #d8d5cd;
+  --as-color-line-strong: #b7b3aa;
+  --as-color-inverse-text: #f8f7f3;
+  --as-color-success: #2e684f;
+  --as-color-warning: #856316;
+  --as-color-error: #963b34;
+
+  --as-bg-canvas: var(--as-color-paper);
+  --as-bg-surface: var(--as-color-white);
+  --as-bg-subtle: var(--as-color-sand);
+  --as-bg-inverse: var(--as-color-ink);
+  --as-text-primary: var(--as-color-ink);
+  --as-text-secondary: var(--as-color-graphite);
+  --as-text-muted: var(--as-color-ash);
+  --as-text-inverse: var(--as-color-inverse-text);
+  --as-border-subtle: var(--as-color-line);
+  --as-border-strong: var(--as-color-line-strong);
+  --as-brand-primary: var(--as-color-brand-primary);
+  --as-action-primary: var(--as-color-brand-primary);
+  --as-action-primary-text: var(--as-color-white);
+  --as-focus: var(--as-color-brand-primary);
+
+  --as-font-display: "DTL Unico T", "DTL Unico", Georgia, serif;
+  --as-font-body: "Pretendard Variable", Pretendard, "Noto Sans KR", Arial, sans-serif;
+  --as-font-sans: var(--as-font-body);
+  --as-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --as-weight-regular: 400;
+  --as-weight-medium: 500;
+  --as-weight-semibold: 600;
+  --as-weight-bold: 700;
+
+  --as-font-1: 0.75rem;
+  --as-font-2: 0.8125rem;
+  --as-font-3: 0.875rem;
+  --as-font-4: 1rem;
+  --as-font-5: 1.125rem;
+  --as-font-6: 1.25rem;
+  --as-font-7: 1.5rem;
+  --as-font-8: 2rem;
+  --as-font-9: 3rem;
+  --as-font-10: 4.5rem;
+  --as-font-11: 6rem;
+
+  --as-display-l: clamp(3rem, 5vw, 6rem);
+  --as-display-m: clamp(2.5rem, 4vw, 4.5rem);
+  --as-title-l: clamp(2rem, 2.75vw, 3.25rem);
+  --as-heading-l: clamp(1.5rem, 2vw, 2rem);
+
+  --as-line-tight: 1.05;
+  --as-line-heading: 1.15;
+  --as-line-body: 1.55;
+  --as-line-longform: 1.65;
+  --as-track-tight: -0.02em;
+  --as-track-normal: 0;
+  --as-track-wide: 0.04em;
+  --as-track-meta: 0.08em;
+
+  --as-space-0: 0;
+  --as-space-1: 2px;
+  --as-space-2: 4px;
+  --as-space-3: 8px;
+  --as-space-4: 12px;
+  --as-space-5: 16px;
+  --as-space-6: 24px;
+  --as-space-7: 32px;
+  --as-space-8: 48px;
+  --as-space-9: 64px;
+  --as-space-10: 80px;
+  --as-space-11: 96px;
+  --as-space-12: 128px;
+  --as-space-13: 160px;
+  --as-space-14: 240px;
+  --as-space-15: 320px;
+
+  /* Named Figma grid presets. */
+  --as-grid-pc1920-viewport: 1920px;
+  --as-grid-pc1920-outer: 1824px;
+  --as-grid-pc1920-default: 1516px;
+  --as-grid-pc1920-focused: 1208px;
+  --as-grid-pc1920-outer-columns: 12;
+  --as-grid-pc1920-default-columns: 10;
+  --as-grid-pc1920-focused-columns: 8;
+  --as-grid-pc1920-column: 130px;
+  --as-grid-pc1920-margin: 48px;
+  --as-grid-pc1920-gutter: 24px;
+
+  --as-grid-tablet1024-viewport: 1024px;
+  --as-grid-tablet1024-outer: 928px;
+  --as-grid-tablet1024-default: 928px;
+  --as-grid-tablet1024-focused: 690px;
+  --as-grid-tablet1024-outer-columns: 8;
+  --as-grid-tablet1024-default-columns: 8;
+  --as-grid-tablet1024-focused-columns: 6;
+  --as-grid-tablet1024-column: 95px;
+  --as-grid-tablet1024-margin: 48px;
+  --as-grid-tablet1024-gutter: 24px;
+
+  --as-grid-tablet768-viewport: 768px;
+  --as-grid-tablet768-outer: 704px;
+  --as-grid-tablet768-default: 704px;
+  --as-grid-tablet768-focused: 524px;
+  --as-grid-tablet768-outer-columns: 8;
+  --as-grid-tablet768-default-columns: 8;
+  --as-grid-tablet768-focused-columns: 6;
+  --as-grid-tablet768-column: 74px;
+  --as-grid-tablet768-margin: 32px;
+  --as-grid-tablet768-gutter: 16px;
+
+  --as-grid-mobile390-viewport: 390px;
+  --as-grid-mobile390-outer: 350px;
+  --as-grid-mobile390-default: 350px;
+  --as-grid-mobile390-focused: 350px;
+  --as-grid-mobile390-outer-columns: 4;
+  --as-grid-mobile390-default-columns: 4;
+  --as-grid-mobile390-focused-columns: 4;
+  --as-grid-mobile390-column: 75.5px;
+  --as-grid-mobile390-margin: 20px;
+  --as-grid-mobile390-gutter: 16px;
+
+  --as-grid-mobile360-viewport: 360px;
+  --as-grid-mobile360-outer: 320px;
+  --as-grid-mobile360-default: 320px;
+  --as-grid-mobile360-focused: 320px;
+  --as-grid-mobile360-outer-columns: 4;
+  --as-grid-mobile360-default-columns: 4;
+  --as-grid-mobile360-focused-columns: 4;
+  --as-grid-mobile360-column: 71px;
+  --as-grid-mobile360-margin: 20px;
+  --as-grid-mobile360-gutter: 12px;
+
+  /* Active aliases start from the 360px design preset. */
+  --as-page-gutter: var(--as-grid-mobile360-margin);
+  --as-grid-gutter: var(--as-grid-mobile360-gutter);
+  --as-grid-columns: var(--as-grid-mobile360-outer-columns);
+  --as-grid-column-width: var(--as-grid-mobile360-column);
+  --as-grid-outer-width: var(--as-grid-mobile360-outer);
+  --as-grid-default-width: var(--as-grid-mobile360-default);
+  --as-grid-focused-width: var(--as-grid-mobile360-focused);
+  --as-grid-default-columns: var(--as-grid-mobile360-default-columns);
+  --as-grid-focused-columns: var(--as-grid-mobile360-focused-columns);
+
+  --as-content-text-narrow: 480px;
+  --as-content-text: 640px;
+  --as-hit-target: 44px;
+
+  --as-ratio-square: 1 / 1;
+  --as-ratio-portrait: 4 / 5;
+  --as-ratio-tall: 2 / 3;
+  --as-ratio-landscape: 3 / 2;
+  --as-ratio-wide: 16 / 9;
+  --as-ratio-panorama: 21 / 9;
+
+  --as-border-hairline: 1px;
+  --as-radius-none: 0;
+  --as-radius-subtle: 2px;
+  --as-radius-pill: 999px;
+
+  --as-duration-instant: 80ms;
+  --as-duration-fast: 160ms;
+  --as-duration-standard: 240ms;
+  --as-duration-deliberate: 400ms;
+  --as-duration-narrative: 700ms;
+  --as-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --as-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --as-z-base: 0;
+  --as-z-raised: 10;
+  --as-z-sticky: 100;
+  --as-z-overlay: 500;
+  --as-z-modal: 1000;
+}
+
+@media (min-width: 390px) {
+  :root {
+    --as-page-gutter: var(--as-grid-mobile390-margin);
+    --as-grid-gutter: var(--as-grid-mobile390-gutter);
+    --as-grid-columns: var(--as-grid-mobile390-outer-columns);
+    --as-grid-column-width: var(--as-grid-mobile390-column);
+    --as-grid-outer-width: var(--as-grid-mobile390-outer);
+    --as-grid-default-width: var(--as-grid-mobile390-default);
+    --as-grid-focused-width: var(--as-grid-mobile390-focused);
+    --as-grid-default-columns: var(--as-grid-mobile390-default-columns);
+    --as-grid-focused-columns: var(--as-grid-mobile390-focused-columns);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --as-page-gutter: var(--as-grid-tablet768-margin);
+    --as-grid-gutter: var(--as-grid-tablet768-gutter);
+    --as-grid-columns: var(--as-grid-tablet768-outer-columns);
+    --as-grid-column-width: var(--as-grid-tablet768-column);
+    --as-grid-outer-width: var(--as-grid-tablet768-outer);
+    --as-grid-default-width: var(--as-grid-tablet768-default);
+    --as-grid-focused-width: var(--as-grid-tablet768-focused);
+    --as-grid-default-columns: var(--as-grid-tablet768-default-columns);
+    --as-grid-focused-columns: var(--as-grid-tablet768-focused-columns);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --as-page-gutter: var(--as-grid-tablet1024-margin);
+    --as-grid-gutter: var(--as-grid-tablet1024-gutter);
+    --as-grid-columns: var(--as-grid-tablet1024-outer-columns);
+    --as-grid-column-width: var(--as-grid-tablet1024-column);
+    --as-grid-outer-width: var(--as-grid-tablet1024-outer);
+    --as-grid-default-width: var(--as-grid-tablet1024-default);
+    --as-grid-focused-width: var(--as-grid-tablet1024-focused);
+    --as-grid-default-columns: var(--as-grid-tablet1024-default-columns);
+    --as-grid-focused-columns: var(--as-grid-tablet1024-focused-columns);
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --as-page-gutter: var(--as-grid-pc1920-margin);
+    --as-grid-gutter: var(--as-grid-pc1920-gutter);
+    --as-grid-columns: var(--as-grid-pc1920-outer-columns);
+    --as-grid-column-width: var(--as-grid-pc1920-column);
+    --as-grid-outer-width: var(--as-grid-pc1920-outer);
+    --as-grid-default-width: var(--as-grid-pc1920-default);
+    --as-grid-focused-width: var(--as-grid-pc1920-focused);
+    --as-grid-default-columns: var(--as-grid-pc1920-default-columns);
+    --as-grid-focused-columns: var(--as-grid-pc1920-focused-columns);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --as-duration-fast: 1ms;
+    --as-duration-standard: 1ms;
+    --as-duration-deliberate: 1ms;
+    --as-duration-narrative: 1ms;
+  }
+}

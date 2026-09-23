@@ -1,0 +1,83 @@
+collection,name,type,value_or_alias,mode,suggested_scope,description
+AS / Primitive Color,white,COLOR,#FFFFFF,Light,,Base white
+AS / Primitive Color,paper,COLOR,#F5F4EF,Light,,Warm canvas
+AS / Primitive Color,sand,COLOR,#ECE9E1,Light,,Subtle background
+AS / Primitive Color,ink,COLOR,#121212,Light,,Primary ink
+AS / Primitive Color,graphite,COLOR,#45443F,Light,,Secondary text
+AS / Primitive Color,ash,COLOR,#73716B,Light,,Muted text
+AS / Primitive Color,line,COLOR,#D8D5CD,Light,,Subtle divider
+AS / Semantic Color,background/canvas,COLOR,{paper},Light,FRAME_FILL,Page background
+AS / Semantic Color,background/surface,COLOR,{white},Light,FRAME_FILL,Surface
+AS / Semantic Color,text/primary,COLOR,{ink},Light,TEXT_FILL,Primary text
+AS / Semantic Color,text/secondary,COLOR,{graphite},Light,TEXT_FILL,Secondary text
+AS / Semantic Color,text/muted,COLOR,{ash},Light,TEXT_FILL,Metadata
+AS / Semantic Color,border/subtle,COLOR,{line},Light,STROKE_COLOR,Hairline
+AS / Space,0,FLOAT,0,Default,GAP,0px
+AS / Space,1,FLOAT,2,Default,GAP,2px
+AS / Space,2,FLOAT,4,Default,GAP,4px
+AS / Space,3,FLOAT,8,Default,GAP,8px
+AS / Space,4,FLOAT,12,Default,GAP,12px
+AS / Space,5,FLOAT,16,Default,GAP,16px
+AS / Space,6,FLOAT,24,Default,GAP,24px
+AS / Space,7,FLOAT,32,Default,GAP,32px
+AS / Space,8,FLOAT,48,Default,GAP,48px
+AS / Space,9,FLOAT,64,Default,GAP,64px
+AS / Space,10,FLOAT,80,Default,GAP,80px
+AS / Space,11,FLOAT,96,Default,GAP,96px
+AS / Space,12,FLOAT,128,Default,GAP,128px
+AS / Space,13,FLOAT,160,Default,GAP,160px
+AS / Space,14,FLOAT,240,Default,GAP,240px
+AS / Space,15,FLOAT,320,Default,GAP,320px
+AS / Layout,content/text-narrow,FLOAT,480,Default,WIDTH_HEIGHT,480px
+AS / Layout,content/text,FLOAT,640,Default,WIDTH_HEIGHT,640px
+AS / Layout,grid/pc1920/viewport,FLOAT,1920,Default,WIDTH_HEIGHT,PC viewport
+AS / Layout,grid/pc1920/outer-width,FLOAT,1824,Default,WIDTH_HEIGHT,12-column outer grid
+AS / Layout,grid/pc1920/default-content-width,FLOAT,1516,Default,WIDTH_HEIGHT,10-column default content
+AS / Layout,grid/pc1920/focused-content-width,FLOAT,1208,Default,WIDTH_HEIGHT,8-column focused content
+AS / Layout,grid/pc1920/outer-columns,FLOAT,12,Default,,Outer columns
+AS / Layout,grid/pc1920/default-content-columns,FLOAT,10,Default,,Default content columns
+AS / Layout,grid/pc1920/focused-content-columns,FLOAT,8,Default,,Focused content columns
+AS / Layout,grid/pc1920/column-width,FLOAT,130,Default,WIDTH_HEIGHT,130px
+AS / Layout,grid/pc1920/margin,FLOAT,48,Default,WIDTH_HEIGHT,48px each side
+AS / Layout,grid/pc1920/gutter,FLOAT,24,Default,GAP,24px
+AS / Layout,grid/tablet1024/viewport,FLOAT,1024,Default,WIDTH_HEIGHT,Tablet viewport
+AS / Layout,grid/tablet1024/outer-width,FLOAT,928,Default,WIDTH_HEIGHT,8-column outer grid
+AS / Layout,grid/tablet1024/default-content-width,FLOAT,928,Default,WIDTH_HEIGHT,8-column default content
+AS / Layout,grid/tablet1024/focused-content-width,FLOAT,690,Default,WIDTH_HEIGHT,6-column focused content
+AS / Layout,grid/tablet1024/outer-columns,FLOAT,8,Default,,Outer columns
+AS / Layout,grid/tablet1024/default-content-columns,FLOAT,8,Default,,Default content columns
+AS / Layout,grid/tablet1024/focused-content-columns,FLOAT,6,Default,,Focused content columns
+AS / Layout,grid/tablet1024/column-width,FLOAT,95,Default,WIDTH_HEIGHT,95px
+AS / Layout,grid/tablet1024/margin,FLOAT,48,Default,WIDTH_HEIGHT,48px each side
+AS / Layout,grid/tablet1024/gutter,FLOAT,24,Default,GAP,24px
+AS / Layout,grid/tablet768/viewport,FLOAT,768,Default,WIDTH_HEIGHT,Tablet viewport
+AS / Layout,grid/tablet768/outer-width,FLOAT,704,Default,WIDTH_HEIGHT,8-column outer grid
+AS / Layout,grid/tablet768/default-content-width,FLOAT,704,Default,WIDTH_HEIGHT,8-column default content
+AS / Layout,grid/tablet768/focused-content-width,FLOAT,524,Default,WIDTH_HEIGHT,6-column focused content
+AS / Layout,grid/tablet768/outer-columns,FLOAT,8,Default,,Outer columns
+AS / Layout,grid/tablet768/default-content-columns,FLOAT,8,Default,,Default content columns
+AS / Layout,grid/tablet768/focused-content-columns,FLOAT,6,Default,,Focused content columns
+AS / Layout,grid/tablet768/column-width,FLOAT,74,Default,WIDTH_HEIGHT,74px
+AS / Layout,grid/tablet768/margin,FLOAT,32,Default,WIDTH_HEIGHT,32px each side
+AS / Layout,grid/tablet768/gutter,FLOAT,16,Default,GAP,16px
+AS / Layout,grid/mobile390/viewport,FLOAT,390,Default,WIDTH_HEIGHT,Mobile viewport
+AS / Layout,grid/mobile390/outer-width,FLOAT,350,Default,WIDTH_HEIGHT,4-column outer grid
+AS / Layout,grid/mobile390/default-content-width,FLOAT,350,Default,WIDTH_HEIGHT,4-column default content
+AS / Layout,grid/mobile390/focused-content-width,FLOAT,350,Default,WIDTH_HEIGHT,4-column focused content
+AS / Layout,grid/mobile390/outer-columns,FLOAT,4,Default,,Outer columns
+AS / Layout,grid/mobile390/default-content-columns,FLOAT,4,Default,,Default content columns
+AS / Layout,grid/mobile390/focused-content-columns,FLOAT,4,Default,,Focused content columns
+AS / Layout,grid/mobile390/column-width,FLOAT,75.5,Default,WIDTH_HEIGHT,75.5px
+AS / Layout,grid/mobile390/margin,FLOAT,20,Default,WIDTH_HEIGHT,20px each side
+AS / Layout,grid/mobile390/gutter,FLOAT,16,Default,GAP,16px
+AS / Layout,grid/mobile360/viewport,FLOAT,360,Default,WIDTH_HEIGHT,Mobile viewport
+AS / Layout,grid/mobile360/outer-width,FLOAT,320,Default,WIDTH_HEIGHT,4-column outer grid
+AS / Layout,grid/mobile360/default-content-width,FLOAT,320,Default,WIDTH_HEIGHT,4-column default content
+AS / Layout,grid/mobile360/focused-content-width,FLOAT,320,Default,WIDTH_HEIGHT,4-column focused content
+AS / Layout,grid/mobile360/outer-columns,FLOAT,4,Default,,Outer columns
+AS / Layout,grid/mobile360/default-content-columns,FLOAT,4,Default,,Default content columns
+AS / Layout,grid/mobile360/focused-content-columns,FLOAT,4,Default,,Focused content columns
+AS / Layout,grid/mobile360/column-width,FLOAT,71,Default,WIDTH_HEIGHT,71px
+AS / Layout,grid/mobile360/margin,FLOAT,20,Default,WIDTH_HEIGHT,20px each side
+AS / Layout,grid/mobile360/gutter,FLOAT,12,Default,GAP,12px
+AS / Layout,hit-target/min,FLOAT,44,Default,WIDTH_HEIGHT,44px
