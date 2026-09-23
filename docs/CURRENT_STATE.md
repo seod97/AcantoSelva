@@ -1,13 +1,21 @@
-# B-2 current state
+# Home2 current state — 2026-09-23
 
-- Created 2026-09-23 from B-1 local working files, including uncommitted visual updates.
-- Opening: Guardian Knot STL, real perspective camera dolly and 90-degree model rotation.
-- Whole ring at start; enlarged opening around 43%; side detail around 82–100%.
-- 440vh scroll track; natural scroll, no wheel interception or snapping.
-- Remaining editorial sections copied from B-1.
-- Reduced motion presents stationary 3D. WebGL/model failures show reference image.
-- Render loop sleeps when settled, offscreen or tab hidden. Pixel ratio capped at 1.75.
-- Reference images are not final material renders; metal and lighting need user visual review.
-- GitHub remote and deployment are not configured.
+Source: Figma x4nfgBPLslK1Igxk9ToQmQ, Home2/Desktop/1920 (1582:30).
+Design context was freshly read after the Object frame changed to node 1695:432.
 
-Edit hero-shots.js for framing, hero-b2.js for material/light, hero-b2.css for layout.
+HTML and CSS are rebuilt from Home2. Old B-1 source copies were removed from B-2;
+they remain recoverable in the initial Git commit. Original ../Acnato is untouched.
+
+At 1920px: Index 1080 high; Hero visible stage 1080; Manifesto 1080;
+section gaps 120; Object outer padding 48 horizontal / 24 vertical;
+Object content 1824×2244, title at left and lead 1362×600 at x462;
+second row y852, 592-wide cards; Eye image 1260 high; small image y1752;
+reserved section 1080; footer 720.
+
+Hero 1602:265 alone runs real STL zoom/rotation with added scroll travel.
+Figma images are downloaded locally. Blank image slots match Figma, not B-1 assets.
+Figma hidden hero copy appears during zoom per the existing animation specification.
+Noto Sans is not bundled; text falls back to Pretendard. Material remains a realtime approximation.
+
+Preview: http://localhost:4182/ with explicit --directory path in README.
+Previous port 4174 returned older HTML; do not use it for verifying this rebuild.

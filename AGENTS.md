@@ -16,7 +16,8 @@ B-1 is located in `../Acnato`; never change it as part of B-2 work.
 
 - Opening uses real 3D STL geometry. Do not substitute image scaling or crossfades.
 - Camera and rotation keyframes belong in src/hero-shots.js.
-- Keep lower sections and copied design tokens unless requested.
+- Layout source is Home2/Desktop/1920 (1582:30). Use index.html and src/home2.css.
+- Do not reintroduce B-1 HTML, navigation, lower sections or styles. Blank slots match the wireframe.
 - Test loading, scroll forward/backward, resizing and reduced motion.
 - Keep image fallback on WebGL/STL failure. Keep imports and model URLs repo-relative.
 - No API keys or external runtime services required.

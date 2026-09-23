@@ -2,21 +2,11 @@ import * as THREE from 'three';
 import { STLLoader } from '../public/vendor/three/loaders/STLLoader.js';
 import { SHOTS } from './hero-shots.js';
 
-// Original markup remains a no-JavaScript fallback. B-2 owns only the opening.
-const opening = document.querySelector('.index');
-const hero = document.querySelector('.hero');
-const track = document.createElement('section');
-track.className = 'b2-track';
-track.id = 'index';
-track.setAttribute('aria-label', 'Guardian Knot — scroll to explore');
-track.innerHTML = `<div class="b2-stage"><img class="b2-fallback" src="./public/assets/b2/HeroImage_01.png" alt="Guardian Knot 반지 정면"><canvas class="b2-canvas" aria-label="스크롤에 따라 확대하고 회전하는 Guardian Knot 3D 반지"></canvas><div class="b2-brand">Acanto Selva</div><h1 class="b2-heading">Rooted in resilience<br>Shaped by movement</h1><button class="b2-cue">Scroll to explore ↓</button><p class="b2-status" role="status">Loading object…</p></div>`;
-opening.replaceWith(track);
-hero.remove();
-import('./app.js');
+// Figma 1602:265: the 3D banner follows the separate Index (1582:31).
+const track = document.querySelector('#hero-banner');
 const stage = track.firstElementChild;
 const status = stage.querySelector('.b2-status');
 const heading = stage.querySelector('.b2-heading');
-const cue = stage.querySelector('.b2-cue');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 const clamp = THREE.MathUtils.clamp;
 let renderer, mesh, environment;
@@ -26,7 +16,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(32, 1, 0.01, 100);
 function progress() {
   if (reduce.matches) return 0;
-  return clamp(-track.getBoundingClientRect().top / Math.max(1, track.offsetHeight - innerHeight), 0, 1);
+  return clamp(-track.getBoundingClientRect().top / Math.max(1, track.offsetHeight - stage.offsetHeight), 0, 1);
 }
 function wake() {
   if (!frame && mesh && visible && !document.hidden) frame = requestAnimationFrame(draw);
@@ -47,15 +37,9 @@ function draw(time) {
   camera.lookAt(THREE.MathUtils.lerp(a.targetX, end.targetX, t), 0, 0);
   mesh.rotation.y = THREE.MathUtils.lerp(a.rotation, end.rotation, t);
   heading.style.opacity = String(clamp(1 - Math.abs(current - 0.43) / 0.14, 0, 1));
-  cue.style.opacity = String(clamp(1 - current * 12, 0, 1));
-  cue.disabled = current > 0.1;
   renderer.render(scene, camera);
   if (current !== target) wake();
 }
-cue.addEventListener('click', () => {
-  const top = scrollY + track.getBoundingClientRect().top;
-  scrollTo({ top: reduce.matches ? top + innerHeight : top + (track.offsetHeight - innerHeight) * 0.43, behavior: reduce.matches ? 'instant' : 'smooth' });
-});
 try {
   renderer = new THREE.WebGLRenderer({ canvas: stage.querySelector('canvas'), antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
@@ -99,7 +83,7 @@ try {
     if (axis === 1) geometry.rotateX(Math.PI / 2);
     geometry.scale(...Array(3).fill(2 / Math.max(size.x, size.y, size.z)));
     mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: '#77736b', metalness: 1, roughness: 0.22, envMapIntensity: 1 }));
-    scene.add(mesh); stage.classList.add('is-ready'); status.hidden = true; resize(); wake();
+    scene.add(mesh); track.classList.add('is-animated'); stage.classList.add('is-ready'); status.hidden = true; resize(); wake();
   }, undefined, () => { status.textContent = '3D 모델을 불러오지 못했습니다. 새로고침해 주세요.'; });
 } catch (error) {
   status.textContent = '이 브라우저에서는 3D를 표시할 수 없어 제품 이미지를 표시합니다.';

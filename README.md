@@ -1,39 +1,40 @@
-# ACANTO SELVA — B-2
+# ACANTO SELVA — Home2 / B-2
 
-Independent static website, forked from the current B-1 working files in `../Acnato`.
-HTML + CSS + JavaScript modules + locally vendored Three.js. No build or install required.
+Fresh HTML and CSS implementation of Figma Home2/Desktop/1920, node 1582:30.
+B-1 in ../Acnato is on hold and untouched. Only assets and the 3D engine are reused.
 
 ## Preview
 
 ```sh
-python3 -m http.server 4174 --bind 127.0.0.1
+python3 -m http.server 4182 --bind 127.0.0.1 --directory /Users/t24-5/Documents/GitHub/AcantoSelva
 ```
 
-Open http://localhost:4174/ . Do not open index.html via file:// (STL and module loading require HTTP).
+Open http://localhost:4182/ . Use HTTP, not file://.
 
-## Files
+## Source files
 
-- `index.html`: page content and import map
-- `src/hero-b2.js`: real STL rendering, studio lighting and scroll-driven camera
-- `src/hero-shots.js`: camera distances and rotations at scroll keyframes
-- `src/hero-b2.css`: B-2 opening layout
-- `src/styles.css`, `src/app.js`, `src/knot-viewer.js`: copied B-1 lower sections
-- `public/assets/b2`: supplied visual references and fallback
-- `design-system`: copied brand tokens
-- `docs/CURRENT_STATE.md`: handoff status
+- index.html: complete Home2 semantic structure with Figma node IDs
+- src/home2.css: independent layout, typography and visible 1920px proportions
+- src/hero-b2.js: real STL renderer scoped to the HeroBanner only
+- src/hero-shots.js: scroll camera and rotation keyframes
+- public/assets/b2/home2-*.png: exact exported Figma assets
+- AGENTS.md / CLAUDE.md: shared collaboration instructions
 
-The three hero images are visual references, not animation frames. STL has no materials;
-the dark metal is reconstructed with environment lighting. Exact photographic matching
-requires visual calibration. Desktop is the current design target.
+Flow: Index → HeroBanner → Manifesto → Object → reserved blank section → footer.
+No B-1 navigation, Origin, Symbol, Standard or fade controllers are loaded.
+Object placeholders follow the current Figma wireframe intentionally.
+
+HeroBanner adds 260vh of scroll travel when 3D loads; its visible stage keeps the
+1920×1080 design ratio. Reduced motion and load failure keep the static section height.
+Noto Sans is not bundled; manifesto/banner use available Noto Sans or Pretendard fallback.
+Desktop is in scope. No mobile redesign is inferred.
 
 ## GitHub
 
-This is an independent Git repository. Add your desired new GitHub repository URL:
+Independent local Git repository. Remote/deployment is not configured.
+Set the intended new repository URL and push when ready:
 
 ```sh
 git remote add origin <NEW_REPOSITORY_URL>
 git push -u origin main
 ```
-
-Do not point this at B-1's repository unless intentionally merging the two projects.
-No credentials are stored here. No deployment is automatic.
