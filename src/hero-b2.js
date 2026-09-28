@@ -38,10 +38,10 @@ function draw(time) {
   mesh.rotation.y = THREE.MathUtils.lerp(a.rotation, end.rotation, t);
   const textIn = smoothstep(0.34, 0.45, current);
   // The ring reaches the copy first; only then does the silhouette wipe begin.
-  const wipe = smoothstep(0.76, 0.94, current);
-  const textOut = smoothstep(0.92, 0.96, current);
+  const wipe = smoothstep(0.76, 0.90, current);
+  const textOut = smoothstep(0.875, 0.91, current);
   heading.style.opacity = String(textIn * (1 - textOut));
-  heading.style.visibility = current >= 0.96 ? 'hidden' : 'visible';
+  heading.hidden = current >= 0.91;
   heading.style.clipPath = `inset(0 0 0 ${wipe * 100}%)`;
   renderer.render(scene, camera);
   if (current !== target) wake();

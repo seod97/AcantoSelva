@@ -31,35 +31,41 @@ function showBetween(nodes, fromIndex, toIndex, amount) {
   });
 }
 
+function showCopies(fromIndex, toIndex, value, fadeOutEnd, fadeInStart) {
+  const fadeOut = phase(value, 0, fadeOutEnd);
+  const fadeIn = phase(value, fadeInStart, 1);
+  copies.forEach((copy, index) => {
+    copy.style.opacity = index === fromIndex ? String(1 - fadeOut) : index === toIndex ? String(fadeIn) : '0';
+  });
+}
+
 function renderEyeToKnot(value) {
-  const imagesMove = phase(value, 0, .30);
-  const imagesSwap = phase(value, .30, .45);
-  const copyHorizontal = phase(value, .45, .64);
-  const copyVertical = phase(value, .64, .84);
-  const copySwap = phase(value, .84, 1);
+  const imagesMove = phase(value, .12, .36);
+  const imagesSwap = phase(value, .45, .63);
+  const copyHorizontal = phase(value, .64, .74);
+  const copyVertical = phase(value, .74, .86);
   setBox(slotA, 0, 0, mix(1208, 592, imagesMove), 640);
   setBox(slotB, 1232, 0, 592, 640);
   showBetween(layersA, 0, 1, imagesSwap);
   showBetween(layersB, 0, 1, imagesSwap);
   setBox(description, mix(0, 616, copyHorizontal), mix(664, 0, copyVertical), 592, mix(416, 640, copyVertical));
   description.style.setProperty('--copy-top', `${mix(0, 82, copyVertical)}%`);
-  showBetween(copies, 0, 1, copySwap);
+  showCopies(0, 1, value, .10, .87);
 }
 
 function renderKnotToLabyrinth(value) {
-  const copyDown = phase(value, 0, .18);
-  const imagesMove = phase(value, .18, .43);
-  const imagesSwap = phase(value, .43, .58);
-  const copyHorizontal = phase(value, .58, .74);
-  const copyVertical = phase(value, .74, .90);
-  const copySwap = phase(value, .90, 1);
+  const copyDown = phase(value, .10, .20);
+  const imagesMove = phase(value, .20, .42);
+  const imagesSwap = phase(value, .51, .69);
+  const copyHorizontal = phase(value, .70, .80);
+  const copyVertical = phase(value, .80, .88);
   setBox(slotA, 0, 0, 592, 640);
   setBox(slotB, mix(1232, 616, imagesMove), 0, 592, 640);
   showBetween(layersA, 1, 2, imagesSwap);
   showBetween(layersB, 1, 2, imagesSwap);
   setBox(description, mix(616, 1232, copyHorizontal), mix(0, 664, copyDown) * (1 - copyVertical), 592, 640);
   description.style.setProperty('--copy-top', `${mix(82, 0, copyDown) + mix(0, 82, copyVertical)}%`);
-  showBetween(copies, 1, 2, copySwap);
+  showCopies(1, 2, value, .09, .89);
 }
 
 function renderPose() {
@@ -83,7 +89,7 @@ function animateTo(next) {
   from = pose;
   target = next;
   startedAt = performance.now();
-  duration = reduce.matches ? 1 : 2800 * Math.max(.35, Math.abs(target - from));
+  duration = reduce.matches ? 1 : 3400 * Math.max(.35, Math.abs(target - from));
   wake();
 }
 
