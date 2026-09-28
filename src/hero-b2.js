@@ -15,7 +15,7 @@ let visible = true;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(32, 1, 0.01, 100);
 function progress() {
-  if (reduce.matches) return 0;
+  if (reduce.matches) return 0.5;
   return clamp(-track.getBoundingClientRect().top / Math.max(1, track.offsetHeight - stage.offsetHeight), 0, 1);
 }
 function wake() {
@@ -33,12 +33,19 @@ function draw(time) {
   const a = SHOTS[b - 1], end = SHOTS[b];
   let t = clamp((current - a.at) / (end.at - a.at), 0, 1);
   t = t * t * (3 - 2 * t);
-  camera.position.set(THREE.MathUtils.lerp(a.x, end.x, t), 0, THREE.MathUtils.lerp(a.distance, end.distance, t));
-  camera.lookAt(THREE.MathUtils.lerp(a.targetX, end.targetX, t), 0, 0);
+  camera.position.set(0, 0, THREE.MathUtils.lerp(a.distance, end.distance, t));
+  camera.lookAt(0, 0, 0);
   mesh.rotation.y = THREE.MathUtils.lerp(a.rotation, end.rotation, t);
-  heading.style.opacity = String(clamp(1 - Math.abs(current - 0.43) / 0.14, 0, 1));
+  const textIn = smoothstep(0.34, 0.45, current);
+  const wipe = smoothstep(0.67, 0.92, current);
+  heading.style.opacity = String(textIn);
+  heading.style.clipPath = `inset(0 0 0 ${wipe * 100}%)`;
   renderer.render(scene, camera);
   if (current !== target) wake();
+}
+function smoothstep(start, end, value) {
+  const t = clamp((value - start) / (end - start), 0, 1);
+  return t * t * (3 - 2 * t);
 }
 try {
   renderer = new THREE.WebGLRenderer({ canvas: stage.querySelector('canvas'), antialias: true, alpha: true });
@@ -52,7 +59,7 @@ try {
     panel.position.set(x, y, z); panel.lookAt(0, 0, 0); studio.add(panel);
   }
   const pmrem = new THREE.PMREMGenerator(renderer);
-  environment = pmrem.fromScene(studio, 0.05);
+  environment = pmrem.fromScene(studio, 0.04);
   scene.environment = environment.texture;
   pmrem.dispose();
   studio.traverse(o => { if (o.isMesh) { o.geometry.dispose(); o.material.dispose(); } });
@@ -83,6 +90,7 @@ try {
     if (axis === 1) geometry.rotateX(Math.PI / 2);
     geometry.scale(...Array(3).fill(2 / Math.max(size.x, size.y, size.z)));
     mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: '#77736b', metalness: 1, roughness: 0.22, envMapIntensity: 1 }));
+    mesh.position.set(0, 0, 0);
     scene.add(mesh); track.classList.add('is-animated'); stage.classList.add('is-ready'); status.hidden = true; resize(); wake();
   }, undefined, () => { status.textContent = '3D 모델을 불러오지 못했습니다. 새로고침해 주세요.'; });
 } catch (error) {

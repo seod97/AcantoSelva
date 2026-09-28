@@ -25,7 +25,9 @@ No B-1 navigation, Origin, Symbol, Standard or fade controllers are loaded.
 Object placeholders follow the current Figma wireframe intentionally.
 
 HeroBanner adds 260vh of scroll travel when 3D loads; its visible stage keeps the
-1920×1080 design ratio. Reduced motion and load failure keep the static section height.
+1920×1080 design ratio. The ring stays centered through zoom, copy reveal, rotation,
+and a left-to-right copy wipe behind the ring silhouette. Reduced motion and load
+failure keep the static section height.
 Noto Sans is not bundled; manifesto/banner use available Noto Sans or Pretendard fallback.
 Desktop is in scope. No mobile redesign is inferred.
 
