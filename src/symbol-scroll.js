@@ -9,9 +9,8 @@ const copies = [...description.children];
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 const clamp = value => Math.max(0, Math.min(1, value));
 const mix = (a, b, t) => a + (b - a) * t;
-const easeOut = t => 1 - (1 - t) ** 4;
 const glide = t => t < .2 ? t * .3 : .06 + .94 * (1 - (1 - (t - .2) / .8) ** 3);
-const phase = (value, start, end) => easeOut(clamp((value - start) / (end - start)));
+const phase = (value, start, end) => clamp((value - start) / (end - start));
 let frame = 0;
 let pose = 0;
 let target = 0;
@@ -33,11 +32,11 @@ function showBetween(nodes, fromIndex, toIndex, amount) {
 }
 
 function renderEyeToKnot(value) {
-  const imagesMove = phase(value, 0, .34);
-  const imagesSwap = phase(value, .34, .48);
-  const copyHorizontal = phase(value, .48, .66);
-  const copyVertical = phase(value, .66, .86);
-  const copySwap = phase(value, .86, 1);
+  const imagesMove = phase(value, 0, .30);
+  const imagesSwap = phase(value, .30, .45);
+  const copyHorizontal = phase(value, .45, .64);
+  const copyVertical = phase(value, .64, .84);
+  const copySwap = phase(value, .84, 1);
   setBox(slotA, 0, 0, mix(1208, 592, imagesMove), 640);
   setBox(slotB, 1232, 0, 592, 640);
   showBetween(layersA, 0, 1, imagesSwap);
@@ -49,11 +48,11 @@ function renderEyeToKnot(value) {
 
 function renderKnotToLabyrinth(value) {
   const copyDown = phase(value, 0, .18);
-  const imagesMove = phase(value, .18, .46);
-  const imagesSwap = phase(value, .46, .60);
-  const copyHorizontal = phase(value, .60, .76);
-  const copyVertical = phase(value, .76, .92);
-  const copySwap = phase(value, .92, 1);
+  const imagesMove = phase(value, .18, .43);
+  const imagesSwap = phase(value, .43, .58);
+  const copyHorizontal = phase(value, .58, .74);
+  const copyVertical = phase(value, .74, .90);
+  const copySwap = phase(value, .90, 1);
   setBox(slotA, 0, 0, 592, 640);
   setBox(slotB, mix(1232, 616, imagesMove), 0, 592, 640);
   showBetween(layersA, 1, 2, imagesSwap);
@@ -84,7 +83,7 @@ function animateTo(next) {
   from = pose;
   target = next;
   startedAt = performance.now();
-  duration = reduce.matches ? 1 : 1400 * Math.max(.35, Math.abs(target - from));
+  duration = reduce.matches ? 1 : 2800 * Math.max(.35, Math.abs(target - from));
   wake();
 }
 
@@ -109,8 +108,16 @@ function onScroll() {
     return;
   }
   if (frame) return;
-  if (target === 0) pose = mix(0, .08, clamp(progress / .18));
-  if (target === 1 && progress >= .47) pose = mix(1, 1.08, clamp((progress - .47) / .08));
+  if (target === 0) {
+    pose = progress <= .08
+      ? mix(0, .10, clamp(progress / .08))
+      : mix(.10, .16, clamp((progress - .08) / .10));
+  }
+  if (target === 1 && progress >= .35) {
+    pose = progress <= .43
+      ? mix(1, 1.10, clamp((progress - .35) / .08))
+      : mix(1.10, 1.16, clamp((progress - .43) / .12));
+  }
   renderPose();
 }
 

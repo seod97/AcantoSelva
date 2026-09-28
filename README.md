@@ -30,7 +30,7 @@ and a left-to-right copy wipe after the ring reaches the copy. Symbol keeps its 
 and stage fixed while its two images and description move between Figma-defined state
 positions. Reduced motion and load
 failure keep the static section height.
-Noto Sans is not bundled; manifesto/banner use available Noto Sans or Pretendard fallback.
+All sans-serif copy, including the Manifesto and Hero banner, uses bundled Pretendard.
 Desktop is in scope. No mobile redesign is inferred.
 
 ## GitHub

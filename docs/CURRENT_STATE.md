@@ -16,16 +16,16 @@ The camera moves only on Z and always looks at the origin, so the ring remains c
 The wipe now starts only after the ring reaches the copy.
 
 Symbol uses a sticky title and stage with a 24px design-space gap. Scroll order is
-Eye → Knot → Labyrinth. Early scroll adds only slight anticipation; crossing each
-threshold starts a 1.4s slow-launch/ease-out timeline that finishes independently
-instead of scrubbing 1:1. Images move/resize first and then
+Eye → Knot → Labyrinth. Each transition starts with a short 1:1 scroll response,
+then a half-rate response; crossing the threshold starts a 2.8s slow-launch/ease-out
+timeline that finishes independently instead of continuing to scrub 1:1. Images move/resize first and then
 crossfade. Eye copy moves horizontally before moving up, then swaps. Knot → Labyrinth
 first moves the copy down, then moves and swaps the images, then returns the copy to
 its final position before swapping. Layout and final positions follow the three Figma
 state frames. The latest Figma node has no canvas keyframes, so the requested motion
 timing lives in `src/symbol-scroll.js`.
 
-Noto Sans is not bundled; text falls back to Pretendard. Material remains a realtime approximation.
+All sans-serif copy uses bundled Pretendard. Material remains a realtime approximation.
 
 Preview: http://localhost:4182/ with explicit --directory path in README.
 Previous port 4174 returned older HTML; do not use it for verifying this rebuild.
