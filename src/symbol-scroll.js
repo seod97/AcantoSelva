@@ -49,7 +49,7 @@ function renderEyeToKnot(value) {
   showBetween(layersA, 0, 1, imagesSwap);
   showBetween(layersB, 0, 1, imagesSwap);
   setBox(description, mix(0, 616, copyHorizontal), mix(664, 0, copyVertical), 592, mix(416, 640, copyVertical));
-  description.style.setProperty('--copy-top', `${mix(0, 82, copyVertical)}%`);
+  description.style.setProperty('--copy-align', copyVertical < .5 ? 'flex-start' : 'flex-end');
   showCopies(0, 1, value, .10, .87);
 }
 
@@ -64,7 +64,7 @@ function renderKnotToLabyrinth(value) {
   showBetween(layersA, 1, 2, imagesSwap);
   showBetween(layersB, 1, 2, imagesSwap);
   setBox(description, mix(616, 1232, copyHorizontal), mix(0, 664, copyDown) * (1 - copyVertical), 592, 640);
-  description.style.setProperty('--copy-top', `${mix(82, 0, copyDown) + mix(0, 82, copyVertical)}%`);
+  description.style.setProperty('--copy-align', 'flex-end');
   showCopies(1, 2, value, .09, .89);
 }
 

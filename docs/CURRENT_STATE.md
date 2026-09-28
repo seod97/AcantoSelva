@@ -11,6 +11,14 @@ Manifesto 3 → Our Standard → Arrival → Footer. The latest Figma copy, Orig
 Standard mosaic, Arrival lockup and plain Footer are reflected in the HTML/CSS. Latest
 exported Figma imagery lives under `public/assets/home2-latest/`.
 
+Section boundaries now use a three-gesture safety gate. After a section reaches its
+bottom, the first two distinct wheel/trackpad gestures hold the current view; the third
+fades through a fixed white overlay and places the next section at its top. The overlay
+does not add a fake white section or alter Figma layout coordinates. Hero → Manifesto
+uses a 20-strip horizontal mask cover adapted from the supplied transition reference,
+then the same soft white reveal. Arrival has no outgoing gate, so Arrival → Footer is
+ordinary continuous scrolling. Reverse navigation uses the same gated white fade.
+
 Hero runs real STL motion with added scroll travel. The sequence is
 zoom → copy reveal → centered Y rotation → silhouette-led left-to-right copy wipe.
 The camera moves only on Z and always looks at the origin, so the ring remains centered.
@@ -29,7 +37,9 @@ timing lives in `src/symbol-scroll.js`.
 
 All sans-serif copy uses bundled Pretendard at the latest Figma sizes, weights, line
 heights and tracking. Unico/Unico Caps remain limited to the designated display marks.
-Material remains a realtime approximation.
+Material remains a realtime approximation. The Index lockup is explicitly centered,
+the intentional Origin null block is transparent, and Symbol descriptions align to the
+top or bottom of their Figma text frame as each state changes.
 
 Preview: http://localhost:4182/ with explicit --directory path in README.
 Previous port 4174 returned older HTML; do not use it for verifying this rebuild.
