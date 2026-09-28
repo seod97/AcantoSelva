@@ -15,12 +15,15 @@ zoom → copy reveal → centered Y rotation → silhouette-led left-to-right co
 The camera moves only on Z and always looks at the origin, so the ring remains centered.
 The wipe now starts only after the ring reaches the copy.
 
-Symbol uses a sticky title and stage. Scroll order is Eye → Knot → Labyrinth. Images
-crossfade while resizing and moving on one axis at a time with ease-in timing. Copy
-moves after the images. Knot → Labyrinth first moves the copy down, then moves the
-images, then moves the copy horizontally and back up to avoid collisions. Layout and
-final positions follow the three Figma state frames. The latest Figma node has no
-canvas keyframes, so the requested motion timing lives in `src/symbol-scroll.js`.
+Symbol uses a sticky title and stage with a 24px design-space gap. Scroll order is
+Eye → Knot → Labyrinth. Early scroll adds only slight anticipation; crossing each
+threshold starts a 1.4s slow-launch/ease-out timeline that finishes independently
+instead of scrubbing 1:1. Images move/resize first and then
+crossfade. Eye copy moves horizontally before moving up, then swaps. Knot → Labyrinth
+first moves the copy down, then moves and swaps the images, then returns the copy to
+its final position before swapping. Layout and final positions follow the three Figma
+state frames. The latest Figma node has no canvas keyframes, so the requested motion
+timing lives in `src/symbol-scroll.js`.
 
 Noto Sans is not bundled; text falls back to Pretendard. Material remains a realtime approximation.
 
