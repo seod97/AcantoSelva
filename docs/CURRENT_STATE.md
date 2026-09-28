@@ -1,23 +1,27 @@
 # Home2 current state — 2026-09-28
 
-Source: Figma x4nfgBPLslK1Igxk9ToQmQ, Home2/Desktop/1920 (1582:30).
-Design context was freshly read after the Object frame changed to node 1695:432.
+Source: Figma x4nfgBPLslK1Igxk9ToQmQ, latest Home2/Desktop/1920 (1715:664).
+Design context was freshly read from the latest root and its Symbol state frames.
 
 HTML and CSS are rebuilt from Home2. Old B-1 source copies were removed from B-2;
 they remain recoverable in the initial Git commit. Original ../Acnato is untouched.
 
-At 1920px: Index 1080 high; Hero visible stage 1080; Manifesto 1080;
-section gaps 120; Object outer padding 48 horizontal / 24 vertical;
-Object content 1824×2244, title at left and lead 1362×600 at x462;
-second row y852, 592-wide cards; Eye image 1260 high; small image y1752;
-reserved section 1080; footer 720.
+The implemented flow is Index → Hero → Manifesto → Object → Origin → Symbol →
+Manifesto 3 → Our Standard → Arrival → Footer. Latest exported Figma imagery lives
+under `public/assets/home2-latest/`.
 
-Hero 1602:265 alone runs real STL motion with added scroll travel. The sequence is
+Hero runs real STL motion with added scroll travel. The sequence is
 zoom → copy reveal → centered Y rotation → silhouette-led left-to-right copy wipe.
 The camera moves only on Z and always looks at the origin, so the ring remains centered.
-Figma images are downloaded locally. Blank image slots match Figma, not B-1 assets.
-The latest Figma node has no canvas keyframes, so Figma supplies layout/copy while the
-requested interaction timing lives in `src/hero-shots.js` and `src/hero-b2.js`.
+The wipe now starts only after the ring reaches the copy.
+
+Symbol uses a sticky title and stage. Scroll order is Eye → Knot → Labyrinth. Images
+crossfade while resizing and moving on one axis at a time with ease-in timing. Copy
+moves after the images. Knot → Labyrinth first moves the copy down, then moves the
+images, then moves the copy horizontally and back up to avoid collisions. Layout and
+final positions follow the three Figma state frames. The latest Figma node has no
+canvas keyframes, so the requested motion timing lives in `src/symbol-scroll.js`.
+
 Noto Sans is not bundled; text falls back to Pretendard. Material remains a realtime approximation.
 
 Preview: http://localhost:4182/ with explicit --directory path in README.
