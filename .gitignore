@@ -4,3 +4,7 @@ node_modules/
 .env.*
 !.env.example
 *.log
+
+# Raw source meshes for scripts/prepare-hero.py — not served at runtime
+# (the site uses the converted public/assets/models/knot-web.glb instead).
+public/assets/models/*.stl

@@ -6,6 +6,8 @@ B-1 is located in `../Acnato`; never change it as part of B-2 work.
 
 ## Concurrent work
 
+- Do not commit or push unless the user explicitly requests it. Leave changes available to review locally.
+
 - Run git status before edits. Preserve other contributors' changes.
 - For simultaneous edits of different tasks, use separate branches and git worktrees.
 - Do not edit the same shared file concurrently. Coordinate file ownership in the task.

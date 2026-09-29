@@ -2,29 +2,69 @@
 <html lang="ko"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ACANTO SELVA — Home2 / B-2</title>
-<link rel="stylesheet" href="./src/home2.css?v=5">
+<link rel="stylesheet" href="./src/home2.css?v=38">
+<script defer src="./public/vendor/gsap/gsap.min.js"></script>
+<script defer src="./public/vendor/gsap/ScrollTrigger.min.js"></script>
 <script type="importmap">{"imports":{"three":"./public/vendor/three/three.module.js"}}</script>
-<script type="module" src="./src/hero-b2.js?v=4"></script>
-<script type="module" src="./src/symbol-scroll.js?v=3"></script>
-<script type="module" src="./src/section-transitions.js?v=2"></script>
+<script type="module" src="./src/main.js?v=38"></script>
 </head><body>
 <main class="home2" data-figma-node="1715:664">
   <section class="home2-index" id="index" aria-labelledby="brand-title" data-figma-node="1715:665"><div class="home2-lockup"><h1 id="brand-title">Acanto Selva</h1><p>Creation is Judgment.</p></div></section>
-  <section class="home2-hero b2-track" id="hero-banner" aria-label="Guardian Knot 3D" data-figma-node="1715:669"><div class="b2-stage">
+  <section class="home2-hero b2-track is-animated" id="hero-banner" aria-label="Guardian Knot 3D" data-figma-node="1715:669"><div class="b2-stage">
     <img class="b2-fallback" src="./public/assets/home2-latest/hero.png" alt="Guardian 반지 히어로 배너"><canvas class="b2-canvas" aria-label="스크롤로 확대·회전하는 Guardian Knot 반지"></canvas>
     <h2 class="b2-heading">Rooted in resilience<br>shaped by movement</h2><p class="b2-status" role="status">Loading object…</p>
   </div></section>
-  <section class="home2-manifesto" aria-label="Manifesto" data-figma-node="1715:672"><p>Creation is Judgment</p></section>
+  <section class="home2-manifesto" aria-label="Manifesto" data-figma-node="1715:672"><img class="home2-manifesto__mark" src="./public/assets/home2-latest/brand-mark.png" alt=""><p>Creation is Judgment</p></section>
   <section class="section-shell home2-object" id="objects" aria-labelledby="objects-title" data-figma-node="1715:674">
-    <header class="section-title object-title"><h2 id="objects-title">First Impression</h2><p>Guardian Ring</p></header>
-    <div class="latest-object-frame"><img class="object-lead" src="./public/assets/home2-latest/object-knot.png" alt="Guardian Knot 반지 착용 사진"><img class="object-eye" src="./public/assets/home2-latest/object-eye.png" alt="Guardian Eye 오브젝트"><img class="object-labyrinth" src="./public/assets/home2-latest/object-labyrinth.png" alt="Guardian Labyrinth 오브젝트"><p class="object-series"><strong>Guardian Ring Series</strong><br>Eye<br>Knot<br>labyrinth<br>and more</p></div>
+    <header class="section-title object-title"><h2 id="objects-title">First Impression</h2></header>
+    <div class="object-frame">
+      <div class="object-hero">
+        <div class="object-hero-media"><img src="./public/assets/home2-latest/object-knot.png" alt="Guardian Knot 반지 착용 사진"></div>
+        <div class="object-hero-desc"><p>오래 살아남은 형태와 상징을 다시 바라보고, <br>그중 지금도 유효한 의미와 아름다움을 판단하여 <br>오늘의 오브제로 만든다</p></div>
+      </div>
+      <div class="object-guardian">
+        <div class="object-guardian-knot" aria-hidden="true"></div>
+        <div class="object-guardian-eye"><img src="./public/assets/home2-latest/object-eye.png" alt="Guardian Eye 오브젝트"></div>
+        <div class="object-guardian-labyrinth"><img src="./public/assets/home2-latest/object-labyrinth.png" alt="Guardian Labyrinth 오브젝트"></div>
+        <p class="object-subtitle object-guardian-subtitle">Guardian Symbol Series</p>
+        <p class="object-subtitle object-guardian-as">AS</p>
+        <p class="object-caption object-guardian-caption">Eye, Knot, Labyrinth</p>
+      </div>
+      <div class="object-bold">
+        <div class="object-bold-a" aria-hidden="true"></div>
+        <div class="object-bold-b" aria-hidden="true"></div>
+        <div class="object-bold-c" aria-hidden="true"></div>
+        <p class="object-subtitle object-bold-subtitle">Bold open series</p>
+        <p class="object-caption object-bold-caption">Eye, Knot, Labyrinth</p>
+        <span class="object-next" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l8 8 8-8"/></svg></span>
+      </div>
+    </div>
   </section>
   <section class="home2-origin section-shell" id="origin" aria-labelledby="origin-title" data-figma-node="1727:1045">
     <header class="origin-title"><h2 id="origin-title">Acanto Selva</h2><p>Acanthus takes root, Nomad moves</p></header>
-    <div class="origin-pair"><figure><img src="./public/assets/home2-latest/origin-acanthus.png" alt="Acanthus"><figcaption><strong>Acanthus</strong><b>Rooted in resilience</b><span>살아남기 위해 뿌리를 내리고</span></figcaption></figure><figure><img src="./public/assets/home2-latest/origin-nomad.png" alt="Nomad"><figcaption><strong>Nomad</strong><b>shaped by movement</b><span>살아남기 위해 움직였다</span></figcaption></figure></div>
-    <div class="origin-null" aria-hidden="true"></div>
-    <div class="origin-synthesis-small"><div>Acanthus X Nomad</div></div>
-    <div class="origin-synthesis"><div>Acanthus X Nomad</div><footer><b>ACANTO SELVA</b><span>생명　 성장　 유기적 긴장감　 이동　 기억　 보호　 여정</span></footer></div>
+    <div class="origin-image-section">
+      <div class="origin-pair">
+        <div class="origin-item">
+          <div class="origin-item-media"><img src="./public/assets/home2-latest/origin-acanthus.png?v=2" alt="Acanthus"></div>
+          <div class="origin-item-copy"><h3>Acanthus</h3><div class="origin-item-sub"><b>Rooted in resilience</b><span>살아남기 위해 뿌리를 내리고</span></div></div>
+        </div>
+        <div class="origin-item">
+          <div class="origin-item-media"><img src="./public/assets/home2-latest/origin-nomad.png?v=2" alt="Nomad"></div>
+          <div class="origin-item-copy"><h3>Nomad</h3><div class="origin-item-sub"><b>shaped by movement</b><span>살아남기 위해 움직였다</span></div></div>
+        </div>
+      </div>
+      <div class="origin-synthesis-01">
+        <div class="origin-null" aria-hidden="true"></div>
+        <div class="origin-synthesis-small">
+          <div class="origin-synthesis-small-media"><img src="./public/assets/home2-latest/origin-synthesis-small.png" alt=""></div>
+          <div class="origin-keywords"><span>생명</span><span>성장</span><span>유기적 긴장감</span><span>이동</span><span>기억</span><span>보호</span><span>여정</span></div>
+        </div>
+      </div>
+      <div class="origin-synthesis-02">
+        <div class="origin-synthesis-02-media"><img src="./public/assets/home2-latest/origin-synthesis-main.png" alt=""><div class="origin-synthesis-overlay">Acanthus X Nomad</div></div>
+        <div class="origin-synthesis-02-caption"><b>ACANTO SELVA</b></div>
+      </div>
+    </div>
   </section>
   <section class="home2-symbol" id="symbol" aria-labelledby="symbol-title" data-figma-node="1715:728"><div class="symbol-pin">
     <header class="section-title symbol-title"><h2 id="symbol-title">Personal Myth</h2><p>문화마다 다른 형태 속에서 반복되는 인간의 상징을 연구한다</p></header>
@@ -34,7 +74,11 @@
       <div class="symbol-description"><div class="symbol-copy symbol-copy-eye"><b>EYE</b><p>EYE 심볼<br>EYE 심볼에 대한 자세한 디스크립션<br>EYE 심볼에 대한 자세한 디스크립션 두줄</p></div><div class="symbol-copy symbol-copy-knot"><b>Knot</b><p>Knot 심볼<br>Knot 심볼에 대한 자세한 디스크립션<br>Knot 심볼에 대한 자세한 디스크립션 두줄</p></div><div class="symbol-copy symbol-copy-labyrinth"><b>Labyrinth</b><p>Labyrinth 심볼<br>Labyrinth 심볼에 대한 자세한 디스크립션<br>Labyrinth 심볼에 대한 자세한 디스크립션 두줄</p></div></div>
     </div>
   </div></section>
-  <section class="manifesto-three" data-figma-node="1715:772"><p>좋은 형태는 발명되지 않는다<br>발견되고, 선택되고, 정제된다</p><img src="./public/assets/home2-latest/brand-mark.png" alt=""><b>Acanto Selva</b></section>
+  <section class="manifesto-three" data-figma-node="1715:772">
+    <div class="manifesto-three-left"><p>좋은 형태는 발명되지 않는다</p><p>발견되고, 선택되고, 정제된다</p></div>
+    <div class="manifesto-three-right"><p>Acanto Selva</p></div>
+    <img class="manifesto-three-mark" src="./public/assets/home2-latest/brand-mark.png" alt="">
+  </section>
   <section class="home2-standard section-shell" id="standard" aria-labelledby="standard-title" data-figma-node="1715:776">
     <header class="section-title standard-title"><h2 id="standard-title">Our Standard</h2><p>기술은 공유된다. 판단은 축적된다</p></header>
     <article class="standard-research"><img src="./public/assets/home2-latest/standard-research.png" alt="리서치 중"><div><b>Research</b><p>감으로 작업하지 않는다<br>기록하고, 비교하고, 반복하며 기준을 만든다</p></div></article>
