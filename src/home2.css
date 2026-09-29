@@ -23,7 +23,9 @@
 .object-hero-desc{position:absolute;left:0;top:35.7292cqw;width:38.8542cqw;display:flex;flex-direction:column;justify-content:flex-start}
 .object-hero-desc p{font:400 1.0417cqw/1.2 Pretendard,sans-serif;letter-spacing:-.010417cqw;width:23.4375cqw}
 .object-guardian{position:absolute;left:0;top:62.8125cqw;width:95cqw;height:59.2708cqw}
-.object-guardian-knot{position:absolute;left:0;top:3.0208cqw;width:46.875cqw;height:56.25cqw;background:#ddd}
+.object-guardian-knot{position:absolute;left:0;top:3.0208cqw;width:46.875cqw;height:56.25cqw;background:#ddd;overflow:hidden}
+.object-guardian-knot img{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+.object-guardian-knot::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.05)}
 .object-guardian-eye{position:absolute;left:48.125cqw;top:3.0208cqw;width:22.8125cqw;height:22.8125cqw;background:#ddd;overflow:hidden}
 .object-guardian-eye img{width:100%;height:100%;object-fit:cover}
 .object-guardian-labyrinth{position:absolute;left:72.1875cqw;top:3.0208cqw;width:22.8125cqw;height:41.6667cqw;background:#f5f7f6;overflow:hidden}
@@ -32,7 +34,9 @@
 .object-guardian-as{position:absolute;right:0;bottom:0;width:22.8125cqw;text-align:right}
 .object-guardian-caption{position:absolute;left:48.125cqw;top:58.125cqw;width:22.8125cqw}
 .object-bold{position:absolute;left:0;top:134.5833cqw;width:95cqw;height:56.25cqw}
-.object-bold-a{position:absolute;left:0;top:3.0208cqw;width:22.8125cqw;height:22.8125cqw;background:#ddd}
+.object-bold-a{position:absolute;left:0;top:3.0208cqw;width:22.8125cqw;height:22.8125cqw;background:#ddd;overflow:hidden}
+.object-bold-a img{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+.object-bold-a::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.03)}
 .object-bold-b{position:absolute;left:24.0625cqw;top:3.0208cqw;width:22.8125cqw;height:40.5208cqw;background:#ddd}
 .object-bold-c{position:absolute;left:48.125cqw;top:3.0208cqw;width:46.875cqw;height:26.3542cqw;background:#ddd}
 .object-bold-subtitle{position:absolute;left:0;top:0;width:22.8125cqw}
@@ -85,12 +89,24 @@
 .section-transition-veil{position:fixed;inset:0;z-index:9999;display:none;background:#fcfcfc;opacity:0;pointer-events:none}.section-transition-veil.is-active{display:block;pointer-events:auto}
 .b2-canvas{visibility:hidden}.b2-stage.is-ready .b2-canvas{visibility:visible}
 
-.side-nav{position:fixed;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;align-items:center;gap:14px}
+.side-nav-zone{position:fixed;left:0;top:0;height:100vh;z-index:10000}
+.side-nav{position:fixed;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:14px}
 .side-nav a{display:block;width:12px;height:16px;display:flex;align-items:center;justify-content:center}
-.side-nav a span{display:block;width:12px;height:2px;border-radius:1px;background:rgba(35,31,32,.28);transition:background .2s ease,transform .2s ease}
-.side-nav a:hover span{background:rgba(35,31,32,.55);transform:scaleX(1.5)}
-.side-nav a.is-active span{background:#231f20;transform:scaleX(1.5)}
-.side-nav a.is-active:hover span{transform:scaleX(1.5)}
+.side-nav a span{display:block;width:12px;height:2px;border-radius:1px;background:rgba(35,31,32,.28);transform:translateY(0);transition:background .2s ease,transform .45s cubic-bezier(.22,1,.36,1),width .45s cubic-bezier(.22,1,.36,1),height .45s cubic-bezier(.22,1,.36,1),border-radius .45s cubic-bezier(.22,1,.36,1)}
+.side-nav-zone:hover .side-nav a:hover span{background:rgba(35,31,32,.55);transform:scaleX(1.5)}
+.side-nav-zone:hover .side-nav a.is-active span{background:#231f20;transform:scaleX(1.5)}
+.side-nav-zone:hover .side-nav a.is-active:hover span{transform:scaleX(1.5)}
+.side-nav a.is-active span{background:#231f20}
+/* Idle: every dash shrinks to a dot and slides to the list's vertical
+   center, so the six overlap into one small blob — the "there's an
+   indicator here" hint without the full list up all the time. */
+.side-nav-zone:not(:hover) .side-nav a span{width:6px;height:6px;border-radius:50%}
+.side-nav-zone:not(:hover) .side-nav a:nth-child(1) span{transform:translateY(75px)}
+.side-nav-zone:not(:hover) .side-nav a:nth-child(2) span{transform:translateY(45px)}
+.side-nav-zone:not(:hover) .side-nav a:nth-child(3) span{transform:translateY(15px)}
+.side-nav-zone:not(:hover) .side-nav a:nth-child(4) span{transform:translateY(-15px)}
+.side-nav-zone:not(:hover) .side-nav a:nth-child(5) span{transform:translateY(-45px)}
+.side-nav-zone:not(:hover) .side-nav a:nth-child(6) span{transform:translateY(-75px)}
 
 .fab-top{position:fixed;right:48px;bottom:48px;z-index:100;width:44px;height:44px;border-radius:50%;background:#231f20;color:#fcfcfc;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.18);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease}
 .fab-top:not(.is-active){opacity:1;pointer-events:auto;transform:translateY(0)}

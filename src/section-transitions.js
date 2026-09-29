@@ -1,4 +1,4 @@
-import { gsap, ScrollTrigger, reducedMotion, scenes, tween } from './motion-runtime.js?v=38';
+import { gsap, ScrollTrigger, reducedMotion, scenes, tween } from './motion-runtime.js?v=40';
 
 export function initSections() {
   history.scrollRestoration = 'manual';

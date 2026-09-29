@@ -14,13 +14,20 @@ export function initNavUI() {
     { id: 'standard', label: 'Standard' },
   ];
 
+  // Idle: bundled into one small circular blob (each dash shrinks to a dot
+  // and slides to the list's vertical center via nth-child CSS). Hovering
+  // the zone — a wide invisible strip, not just the tiny dot itself —
+  // unfurls them back into the normal spread-out dash list.
+  const zone = document.createElement('div');
+  zone.className = 'side-nav-zone';
   const nav = document.createElement('nav');
   nav.className = 'side-nav';
   nav.setAttribute('aria-label', '섹션 이동');
   nav.innerHTML = SECTIONS.map(s =>
     `<a href="#${s.id}" aria-label="${s.label}"><span></span></a>`
   ).join('');
-  document.body.appendChild(nav);
+  zone.appendChild(nav);
+  document.body.appendChild(zone);
   const links = [...nav.querySelectorAll('a')];
 
   // Never resize/shift content to make room for this indicator — instead
@@ -39,7 +46,12 @@ export function initNavUI() {
     const contentLeft = shell.getBoundingClientRect().left + parseFloat(getComputedStyle(shell).paddingLeft);
     const growthPad = (DASH_WIDTH_GROWN - DASH_WIDTH) / 2;
     const maxLeftForGap = contentLeft - CONTENT_GAP - DASH_WIDTH - growthPad;
-    nav.style.left = `${Math.max(4, Math.min(MIN_SCREEN_EDGE, maxLeftForGap))}px`;
+    const left = Math.max(4, Math.min(MIN_SCREEN_EDGE, maxLeftForGap));
+    nav.style.left = `${left}px`;
+    // The hover zone reaches from the screen edge up to (not past) content —
+    // it's the same "never touch content" gutter, just claimed for hover
+    // detection instead of left empty.
+    zone.style.width = `${Math.max(left + DASH_WIDTH_GROWN, contentLeft - CONTENT_GAP)}px`;
   }
   positionSideNav();
   new ResizeObserver(positionSideNav).observe(main);
