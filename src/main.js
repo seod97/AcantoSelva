@@ -1,14 +1,14 @@
-import { ScrollTrigger, registerScene } from './motion-runtime.js?v=40';
-import { initSections } from './section-transitions.js?v=40';
-import { initSymbol } from './symbol-scroll.js?v=40';
-import { initNavUI } from './nav-ui.js?v=40';
-import { initScrollReveal } from './scroll-reveal.js?v=40';
+import { ScrollTrigger, registerScene } from './motion-runtime.js?v=41';
+import { initSections } from './section-transitions.js?v=41';
+import { initSymbol } from './symbol-scroll.js?v=41';
+import { initNavUI } from './nav-ui.js?v=41';
+import { initScrollReveal } from './scroll-reveal.js?v=41';
 
 initSymbol();
 initNavUI();
 // The expensive 3D module does not delay section isolation or scroll handling.
 const hero = document.querySelector('#hero-banner');
-const pendingHero = import('./hero-b2.js?v=40').then(({ initHero }) => initHero()).catch(error => {
+const pendingHero = import('./hero-b2.js?v=41').then(({ initHero }) => initHero()).catch(error => {
   hero.querySelector('.b2-stage').classList.add('is-fallback');
   hero.querySelector('.b2-status').textContent = '제품 이미지를 표시합니다.';
   console.warn('Hero fallback:', error);

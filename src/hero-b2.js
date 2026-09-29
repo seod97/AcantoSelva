@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../public/vendor/three/loaders/GLTFLoader.js';
-import { SHOTS } from './hero-shots.js?v=40';
-import { gsap, ScrollTrigger, reducedMotion, registerScene } from './motion-runtime.js?v=40';
+import { SHOTS } from './hero-shots.js?v=41';
+import { gsap, ScrollTrigger, reducedMotion, registerScene } from './motion-runtime.js?v=41';
 
 export async function initHero() {
   const track = document.querySelector('#hero-banner');

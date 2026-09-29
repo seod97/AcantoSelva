@@ -90,23 +90,30 @@
 .b2-canvas{visibility:hidden}.b2-stage.is-ready .b2-canvas{visibility:visible}
 
 .side-nav-zone{position:fixed;left:0;top:0;height:100vh;z-index:10000}
-.side-nav{position:fixed;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:14px}
-.side-nav a{display:block;width:12px;height:16px;display:flex;align-items:center;justify-content:center}
-.side-nav a span{display:block;width:12px;height:2px;border-radius:1px;background:rgba(35,31,32,.28);transform:translateY(0);transition:background .2s ease,transform .45s cubic-bezier(.22,1,.36,1),width .45s cubic-bezier(.22,1,.36,1),height .45s cubic-bezier(.22,1,.36,1),border-radius .45s cubic-bezier(.22,1,.36,1)}
-.side-nav-zone:hover .side-nav a:hover span{background:rgba(35,31,32,.55);transform:scaleX(1.5)}
-.side-nav-zone:hover .side-nav a.is-active span{background:#231f20;transform:scaleX(1.5)}
-.side-nav-zone:hover .side-nav a.is-active:hover span{transform:scaleX(1.5)}
+.side-nav{position:fixed;top:50%;left:16px;transform:translateY(-50%);width:12px;height:16px}
+.side-nav a{position:absolute;top:0;left:0;width:12px;height:16px;display:flex;align-items:center;justify-content:flex-start}
+.side-nav a span{display:block;width:12px;height:2px;border-radius:1px;background:rgba(35,31,32,.28);transform-origin:0 50%;transition:background .2s ease,transform .5s cubic-bezier(.22,1,.36,1)}
 .side-nav a.is-active span{background:#231f20}
-/* Idle: every dash shrinks to a dot and slides to the list's vertical
-   center, so the six overlap into one small blob — the "there's an
-   indicator here" hint without the full list up all the time. */
-.side-nav-zone:not(:hover) .side-nav a span{width:6px;height:6px;border-radius:50%}
-.side-nav-zone:not(:hover) .side-nav a:nth-child(1) span{transform:translateY(75px)}
-.side-nav-zone:not(:hover) .side-nav a:nth-child(2) span{transform:translateY(45px)}
-.side-nav-zone:not(:hover) .side-nav a:nth-child(3) span{transform:translateY(15px)}
-.side-nav-zone:not(:hover) .side-nav a:nth-child(4) span{transform:translateY(-15px)}
-.side-nav-zone:not(:hover) .side-nav a:nth-child(5) span{transform:translateY(-45px)}
-.side-nav-zone:not(:hover) .side-nav a:nth-child(6) span{transform:translateY(-75px)}
+.side-nav-zone:hover .side-nav a:hover span{background:rgba(35,31,32,.55);transform:scaleX(1.5)}
+.side-nav-zone:hover .side-nav a.is-active span{transform:scaleX(1.5)}
+.side-nav-zone:hover .side-nav a.is-active:hover span{transform:scaleX(1.5)}
+/* Spread (hover): the normal vertical per-section list, no rotation. */
+.side-nav-zone:hover .side-nav a:nth-child(1) span{transform:translateY(-75px)}
+.side-nav-zone:hover .side-nav a:nth-child(2) span{transform:translateY(-45px)}
+.side-nav-zone:hover .side-nav a:nth-child(3) span{transform:translateY(-15px)}
+.side-nav-zone:hover .side-nav a:nth-child(4) span{transform:translateY(15px)}
+.side-nav-zone:hover .side-nav a:nth-child(5) span{transform:translateY(45px)}
+.side-nav-zone:hover .side-nav a:nth-child(6) span{transform:translateY(75px)}
+/* Idle: every dash pivots from the same shared left-edge point (all six
+   `<a>`s sit exactly on top of each other) and fans out at its own angle,
+   like hands on a half-open clock face — the "there's an indicator here"
+   hint without the full list up all the time. */
+.side-nav-zone:not(:hover) .side-nav a:nth-child(1) span{transform:rotate(-75deg)}
+.side-nav-zone:not(:hover) .side-nav a:nth-child(2) span{transform:rotate(-45deg)}
+.side-nav-zone:not(:hover) .side-nav a:nth-child(3) span{transform:rotate(-15deg)}
+.side-nav-zone:not(:hover) .side-nav a:nth-child(4) span{transform:rotate(15deg)}
+.side-nav-zone:not(:hover) .side-nav a:nth-child(5) span{transform:rotate(45deg)}
+.side-nav-zone:not(:hover) .side-nav a:nth-child(6) span{transform:rotate(75deg)}
 
 .fab-top{position:fixed;right:48px;bottom:48px;z-index:100;width:44px;height:44px;border-radius:50%;background:#231f20;color:#fcfcfc;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.18);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease}
 .fab-top:not(.is-active){opacity:1;pointer-events:auto;transform:translateY(0)}
