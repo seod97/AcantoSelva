@@ -6,10 +6,14 @@ B-1 in ../Acnato is on hold and untouched. Only assets and the 3D engine are reu
 ## Preview
 
 ```sh
-python3 -m http.server 4182 --bind 127.0.0.1 --directory /Users/t24-5/Documents/GitHub/AcantoSelva
+python3 scripts/dev-server.py 4182 /Users/t24-5/Documents/GitHub/AcantoSelva
 ```
 
-Open http://localhost:4182/ . Use HTTP, not file://.
+Open http://localhost:4182/ . Use HTTP, not file://. Use this server, not plain
+`python3 -m http.server` — it adds `Cache-Control: no-store` to every response, which
+plain http.server doesn't; without it a tab can keep serving a stale build (a
+hash-only navigation never re-fetches the document either way — reload or open a
+fresh tab to see a new build).
 
 ## Source files
 
@@ -18,17 +22,20 @@ Open http://localhost:4182/ . Use HTTP, not file://.
 - src/main.js: shared entry point; starts section isolation before loading 3D
 - src/motion-runtime.js: GSAP / ScrollTrigger shared ticker and scene lifecycle
 - src/section-transitions.js: smoothed scroll, section isolation, covered scene changes
+- src/nav-ui.js: left dash section indicator, scroll-to-top FAB, decorative hamburger
+- src/scroll-reveal.js: scroll-in reveal for Object/Origin photo groups
 - src/hero-b2.js: real 3D renderer using a preprocessed, indexed copy of the original STL
 - src/hero-shots.js: scroll camera and rotation keyframes
 - src/symbol-scroll.js: sticky Eye → Knot → Labyrinth scroll choreography
 - public/assets/home2-latest/: latest exported Figma assets
 - AGENTS.md / CLAUDE.md: shared collaboration instructions
+- docs/CURRENT_STATE.md: dense prose snapshot of current behavior — read this first
 
 Flow: Index → HeroBanner → Manifesto → Object → Origin → Symbol → Manifesto 3 →
 Our Standard → Arrival → Footer. Inactive scenes remain invisible and inert until
 the white transition cover is opaque. Arrival and Footer share one continuous scene.
 
-HeroBanner reserves 260vh of scroll travel before 3D loads; its visible stage keeps the
+HeroBanner reserves 215vh of scroll travel before 3D loads; its visible stage keeps the
 1920×1080 design ratio. The ring stays centered through zoom, copy reveal, rotation,
 and a left-to-right copy wipe after the ring reaches the copy. Symbol keeps its title
 and stage fixed while its two images and description move between Figma-defined state
@@ -40,8 +47,11 @@ Desktop is in scope. No mobile redesign is inferred.
 ## Motion and model maintenance
 
 GSAP 3.15.0 and ScrollTrigger are vendored locally under `public/vendor/gsap/`.
-There is one scroll smoothing layer (0.42s ease-out). Hero consumes that progress
-directly, without a second lag filter. Symbol uses one reversible timeline with
+Scroll smoothing is one persistent per-frame follow loop (`followTick()` in
+section-transitions.js), not a tween restarted per input event — that was too slow
+to visibly progress under trackpad/Magic Mouse's high-frequency small deltas. Hero
+consumes ScrollTrigger progress directly, without a second lag filter. Symbol uses
+one reversible timeline with
 image movement, a 0.2–0.25s pause, crossfade and then description reveal. It preserves
 the orthogonal routes and final Figma coordinates, using transforms and crop masks.
 
