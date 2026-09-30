@@ -1,4 +1,4 @@
-import { gsap, ScrollTrigger, reducedMotion, registerScene } from './motion-runtime.js?v=41';
+import { gsap, ScrollTrigger, reducedMotion, registerScene } from './motion-runtime.js?v=42';
 
 export function initSymbol() {
   const section = document.querySelector('#symbol');

@@ -2,7 +2,7 @@
 // section, replayed every time the section is re-entered (not just once per
 // page load) — registerScene's sync fires on every activation, forward or
 // backward, so re-arming there is what makes "leave and come back" replay it.
-import { gsap, ScrollTrigger, reducedMotion, registerScene } from './motion-runtime.js?v=41';
+import { gsap, ScrollTrigger, reducedMotion, registerScene } from './motion-runtime.js?v=42';
 
 function resolveEls(selectors) {
   return typeof selectors === 'string'
